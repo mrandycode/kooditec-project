@@ -1,0 +1,4 @@
+// export default {
+//     'config': './config/sequelize',
+//     'models-path': './db/models/index.model'
+// }

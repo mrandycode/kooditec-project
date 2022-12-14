@@ -1,0 +1,32 @@
+{
+  "platform": [
+    {
+      "id": 12312312,
+      "name": "Aplicación Web"
+    },
+    {
+      "id": 188292,
+      "name": "Aplicación Mobile"
+    },
+    {
+      "id": 289393,
+      "name": "Integración de Datos"
+    },
+    {
+      "id": 2232111,
+      "name": "Asesoría"
+    },
+    {
+      "id": 29982,
+      "name": "Landing Page"
+    },
+    {
+      "id": 92039,
+      "name": "E-Commerce"
+    },
+    {
+      "id": 89202,
+      "name": "Otro"
+    }
+  ]
+}

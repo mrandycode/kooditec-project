@@ -1,0 +1,33 @@
+{
+  "professions": [
+    {
+      "id": 12312312,
+      "name": "Diseñador Gráfico",
+      "skills": [
+        { "id": 1, "name": "Diseno 3d" },
+        { "id": 2, "name": "Retoque Fotografico" },
+        { "id": 3, "name": "Cualquier otra cosa" }
+      ]
+    },
+    {
+      "id": 188292,
+      "name": "Desarrollador Web",
+      "skills": [
+        { "id": 1, "name": "Frontend" },
+        { "id": 2, "name": "Backend" },
+        { "id": 3, "name": "FullStack" }        
+      ]
+    },
+    {
+      "id": 289393,
+      "name": "Reclutamiento",
+      "skills": [
+        { "id": 1, "name": "Captación" },
+        { "id": 2, "name": "Nomina" },
+        { "id": 4, "name": "Asesor" },        
+        { "id": 5, "name": "Gestión Humana" },        
+        { "id": 6, "name": "Calidad de Vida" }        
+      ]
+    }
+  ]
+}
