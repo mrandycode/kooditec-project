@@ -8,7 +8,7 @@ export class PlatformService {
     }
 
     async save(platform: PlatformCreate) {
-        return await Platform.create(platform).then(() => {})
+        return await Platform.create(platform)
     }
 }
 

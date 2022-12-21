@@ -11,6 +11,7 @@ import {
     CreatedAt,
     DataType,
     UpdatedAt,
+    Unique,
 } from 'sequelize-typescript'
 import CustomerPlatform from './customer-platform.model'
 
@@ -49,6 +50,7 @@ export default class CustomerForm extends Model implements CustomerFormI {
     @Column({ field: 'country_id', type: DataType.INTEGER('3') })
     countryId!: number
 
+    @Unique 
     @IsEmail
     @AllowNull(false)
     @Column({ type: DataType.STRING(64) })

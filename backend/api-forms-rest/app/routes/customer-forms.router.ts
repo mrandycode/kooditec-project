@@ -20,4 +20,14 @@ router.post('/save', async (req: Request, res: Response, next) => {
     }
 })
 
+router.post('/find-by-id', async (req: Request, res: Response, next) => {
+    try {
+        const body = req.body
+        const id = body.id
+        res.json(await customerFormService.findOne(id))
+    } catch (error) {
+        next(error)
+    }
+})
+
 export default router

@@ -64,10 +64,6 @@ export default class HRForm extends Model implements HRFormI {
     @Column({ type: DataType.STRING(64) })
     email!: string
 
-    // @AllowNull(false)
-    // @Column({ field: 'profession_id' })
-    // professionId!: number
-
     @AllowNull(false)
     @Column({ field: 'country_id' })
     countryId!: number

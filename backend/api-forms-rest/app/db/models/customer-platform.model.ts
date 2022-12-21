@@ -32,7 +32,6 @@ export default class CustomerPlatform
     id?: number
 
     @ForeignKey(() => CustomerForm)
-    @PrimaryKey
     @Column({ field: 'customer_id', unique: 'uniqueCustomerPlatformIDX01' })
     customerId!: number
 
