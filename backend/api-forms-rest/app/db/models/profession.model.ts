@@ -11,18 +11,19 @@ import {
     DataType,
 } from 'sequelize-typescript'
 
-export interface PlatformI {
+export interface ProfessionI {
     id?: number | null
     name?: string
 }
 
-export interface PlatformCreate extends Optional<PlatformI, 'id'> {}
+export interface ProfessionCreate extends Optional<ProfessionI, 'id'> {}
 
 @Table({
-    tableName: 'platforms',
-    timestamps: true,
+    tableName: 'professions',
+    timestamps: true
 })
-export default class Platform extends Model implements PlatformI {
+export default class Profession extends Model implements ProfessionI {
+    
     @AutoIncrement
     @PrimaryKey
     @Column

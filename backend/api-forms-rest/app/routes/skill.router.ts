@@ -1,12 +1,12 @@
 import { Router, Request, Response } from 'express'
-import CustomerFormService from '../services/customer.service'
+import SkillService from '../services/skill.service'
 
 const router = Router()
-const customerFormService = new CustomerFormService()
+const skillService = new SkillService()
 
 router.get('/get-all', async (req: Request, res: Response, next) => {
     try {
-        res.json(await customerFormService.find())
+        res.json(await skillService.find())
     } catch (error) {
         next(error)
     }
@@ -14,10 +14,10 @@ router.get('/get-all', async (req: Request, res: Response, next) => {
 
 router.post('/save', async (req: Request, res: Response, next) => {
     try {
-        res.json(await customerFormService.save(req.body))
+        res.json(await skillService.save(req.body))
     } catch (error) {
         next(error)
     }
 })
 
-export default router
+export = router

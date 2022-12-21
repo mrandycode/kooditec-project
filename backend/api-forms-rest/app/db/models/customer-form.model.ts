@@ -9,6 +9,8 @@ import {
     IsEmail,
     HasMany,
     CreatedAt,
+    DataType,
+    UpdatedAt,
 } from 'sequelize-typescript'
 import CustomerPlatform from './customer-platform.model'
 
@@ -16,7 +18,7 @@ export interface CustomerFormI {
     id?: number | null
     companyName: string
     contactName: string
-    country: number
+    countryId: number
     email: string
     phone: string
     message: string
@@ -28,7 +30,6 @@ export interface CustomerCreate extends Optional<CustomerFormI, 'id'> {}
 
 @Table({
     tableName: 'customers_forms',
-    timestamps: true,
 })
 export default class CustomerForm extends Model implements CustomerFormI {
     @AutoIncrement
@@ -45,24 +46,28 @@ export default class CustomerForm extends Model implements CustomerFormI {
     contactName!: string
 
     @AllowNull(false)
-    @Column
-    country!: number
+    @Column({ field: 'country_id', type: DataType.INTEGER('3') })
+    countryId!: number
 
     @IsEmail
     @AllowNull(false)
-    @Column
+    @Column({ type: DataType.STRING(64) })
     email!: string
 
-    @Column
+    @Column({ type: DataType.STRING(50) })
     phone!: string
 
-    @Column
-    message!: string
-
-    @CreatedAt
-    @Column({field:'create_at'})
-    createDate!: Date
+    @Column({ type: DataType.STRING(250) })
+    message!: string 
 
     @HasMany(() => CustomerPlatform)
     platforms!: CustomerPlatform[]
+
+    @CreatedAt
+    @Column({ field: 'create_at', defaultValue: DataType.NOW })
+    createDate!: Date
+
+    @UpdatedAt
+    @Column({ field: 'updated_at' })
+    updatedAt!: Date
 }
