@@ -9,21 +9,23 @@ import {
     CreatedAt,
     UpdatedAt,
     DataType,
+    HasMany,
 } from 'sequelize-typescript'
+import Skill from './skill.model'
 
 export interface ProfessionI {
     id?: number | null
     name?: string
+    skills: Skill[]
 }
 
 export interface ProfessionCreate extends Optional<ProfessionI, 'id'> {}
 
 @Table({
     tableName: 'professions',
-    timestamps: true
+    timestamps: true,
 })
 export default class Profession extends Model implements ProfessionI {
-    
     @AutoIncrement
     @PrimaryKey
     @Column
@@ -32,6 +34,9 @@ export default class Profession extends Model implements ProfessionI {
     @AllowNull(false)
     @Column({ type: DataType.STRING(100) })
     name?: string
+
+    @HasMany(() => Skill)
+    skills!: Skill[]
 
     @CreatedAt
     @Column({ field: 'created_at' })

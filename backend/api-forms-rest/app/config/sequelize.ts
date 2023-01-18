@@ -1,5 +1,6 @@
 import { Sequelize } from 'sequelize-typescript'
 import { config } from '../config/config'
+import Country from '../db/models/country.model'
 import CustomerForm from '../db/models/customer-form.model'
 import CustomerPlatform from '../db/models/customer-platform.model'
 import HRForm from '../db/models/hr-form.model'
@@ -17,14 +18,15 @@ export const sequelize = new Sequelize(URI, {
     dialect: 'mysql',
     logging: true,
     models: [
+        Country,
         CustomerForm,
         Platform,
         CustomerPlatform,
-        Profession,
         Skill,
+        Profession,      
         HRSkill,
-        HRForm,
         HRProfession,
+        HRForm
     ],
 })
 

@@ -14,6 +14,7 @@ import {
     HasMany,
     Unique,
 } from 'sequelize-typescript'
+import Country from './country.model'
 import HRProfession from './hr-profession.model'
 import HRSkill from './hr-skill.model'
 
@@ -25,7 +26,8 @@ export interface HRFormI {
     mobile: string
     phone: string
     email: string
-    countryId: number,
+    countryId: number
+    fileName: string
     hrSkills: HRSkill[]
     hrProfession: HRProfession
 }
@@ -65,8 +67,17 @@ export default class HRForm extends Model implements HRFormI {
     email!: string
 
     @AllowNull(false)
-    @Column({ field: 'country_id' })
+    @Column({
+        field: 'country_id',
+        type: DataType.INTEGER('3'),
+        references: { model: Country, key: 'id' },
+    })
     countryId!: number
+
+    @Unique
+    @AllowNull(false)
+    @Column({ field: 'file_name', type: DataType.STRING(100) })
+    fileName!: string
 
     @CreatedAt
     @Column({ field: 'create_at', defaultValue: DataType.NOW })

@@ -1,12 +1,12 @@
 import { Router, Request, Response } from 'express'
-import CustomerFormService from '../services/customer.service'
+import CountryService from '../services/country.service'
 
 const router = Router()
-const customerFormService = new CustomerFormService()
+const countryService = new CountryService()
 
 router.get('/get-all', async (req: Request, res: Response, next) => {
     try {
-        res.json(await customerFormService.find())
+        res.json(await countryService.find())
     } catch (error) {
         next(error)
     }
@@ -14,8 +14,7 @@ router.get('/get-all', async (req: Request, res: Response, next) => {
 
 router.post('/save', async (req: Request, res: Response, next) => {
     try {
-        console.log(req.body, '👨🏽‍💻 ospsosps')
-        res.json(await customerFormService.save(req.body))
+        res.json(await countryService.save(req.body))
     } catch (error) {
         next(error)
     }
@@ -25,7 +24,7 @@ router.post('/find-by-id', async (req: Request, res: Response, next) => {
     try {
         const body = req.body
         const id = body.id
-        res.json(await customerFormService.findOne(id))
+        res.json(await countryService.findOne(id))
     } catch (error) {
         next(error)
     }

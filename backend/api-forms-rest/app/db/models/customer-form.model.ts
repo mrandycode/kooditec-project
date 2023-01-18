@@ -13,6 +13,7 @@ import {
     UpdatedAt,
     Unique,
 } from 'sequelize-typescript'
+import Country from './country.model'
 import CustomerPlatform from './customer-platform.model'
 
 export interface CustomerFormI {
@@ -47,10 +48,14 @@ export default class CustomerForm extends Model implements CustomerFormI {
     contactName!: string
 
     @AllowNull(false)
-    @Column({ field: 'country_id', type: DataType.INTEGER('3') })
+    @Column({
+        field: 'country_id',
+        type: DataType.INTEGER('3'),
+        references: { model: Country, key: 'id' },
+    })
     countryId!: number
 
-    @Unique 
+    @Unique
     @IsEmail
     @AllowNull(false)
     @Column({ type: DataType.STRING(64) })
@@ -60,7 +65,7 @@ export default class CustomerForm extends Model implements CustomerFormI {
     phone!: string
 
     @Column({ type: DataType.STRING(250) })
-    message!: string 
+    message!: string
 
     @HasMany(() => CustomerPlatform)
     platforms!: CustomerPlatform[]

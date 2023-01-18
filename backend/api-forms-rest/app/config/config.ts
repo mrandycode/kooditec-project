@@ -1,23 +1,25 @@
-import dotenv from "dotenv";
-dotenv.config();
+import dotenv from 'dotenv'
+dotenv.config()
 
 const config = {
-  env: process.env.NODE_ENV || "dev",
-  isProd: process.env.NODE_ENV === "production",
-  port: process.env.PORT || 3000,
-  dbUser: process.env.DB_USER as string,
-  dbPassword: process.env.DB_PASSWORD as string,
-  dbPort: process.env.DB_PORT,
-  dbName: process.env.DB_NAME,
-  dbHost: process.env.DB_HOST,
-  jwtSecret: process.env.JWT_SECRET,
-  jwtGeoSecret: process.env.JWT_GEO_SECRET,
-  apiKey: process.env.API_KEY,
-  // corsWhiteList: process.env.CORS_WHITE_LIST.split(' '),
-  hostEmail: process.env.HOST_EMAIL,
-  portEmail: process.env.PORT_EMAIL,
-  baseUrlWeb: process.env.BASE_URL_WEB,
-  geolocationExpire: process.env.GEOLOCATION_EXPIRE,
-};
+    env: process.env.NODE_ENV || 'dev',
+    isProd: process.env.NODE_ENV === 'production',
+    port: process.env.PORT || 3000,
+    dbUser: process.env.DB_USER as string,
+    dbPassword: process.env.DB_PASSWORD as string,
+    dbPort: process.env.DB_PORT,
+    dbName: process.env.DB_NAME,
+    dbHost: process.env.DB_HOST,
+    jwtSecret: process.env.JWT_SECRET,
+    jwtGeoSecret: process.env.JWT_GEO_SECRET,
+    apiKey: process.env.API_KEY,
+    corsWhiteList: process.env.CORS_WHITE_LIST?.split(' '),
+    hostEmail: process.env.HOST_EMAIL,
+    portEmail: process.env.PORT_EMAIL,
+    baseUrlWeb: process.env.BASE_URL_WEB,
+    geolocationExpire: process.env.GEOLOCATION_EXPIRE,
+    hostUpload: process.env.HOST_UPLOAD,
+    portUpload: process.env.PORT_UPLOAD,
+}
 
-export { config };
+export { config }
